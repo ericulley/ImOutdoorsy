@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const db = mongoose.connection
 require('dotenv').config()
+const session = require('express-session');
 
 const PORT = process.env.PORT || 3003
 
@@ -15,6 +16,7 @@ mongoose.connect(MONGODB_URI,
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
+        useCreateIndex: true,
     }
 )
 
@@ -28,10 +30,21 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(methodOverride('_method'))
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false,
+    })
+)
 
 // Controllers
 const actsController = require('./controllers/acts_controller.js')
 app.use('/acts', actsController)
+const usersController = require('./controllers/users_controller.js')
+app.use('/users', usersController)
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionsController)
 
 // Listener
 app.listen(PORT, () => {

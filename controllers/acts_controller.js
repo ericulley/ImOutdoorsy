@@ -14,26 +14,26 @@ const seed = require('../models/activity_seed')
 // Seed Route
 acts.get('/seed', (req, res) => {
     Act.create(seed, (err, data) => {
-        res.redirect('/')
+        res.redirect('/acts')
     })
 })
 
 // Index Route
 acts.get('/', (req, res) => {
     Act.find({}, (err, data) => {
-        res.render('index.ejs',
+        res.render('acts/index.ejs',
         {
             acts: data,
         })
     })
 })
 
-// New Route
+// New Activity Route
 acts.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('acts/new.ejs')
 })
 
-// Create Route
+// Create Activity Route
 acts.post('/', (req, res) => {
     Act.create(req.body, (err, newAct) => {
         // CHANGE: redirect to show page
@@ -45,17 +45,17 @@ acts.post('/', (req, res) => {
     })
 })
 
-// Edit Route
+// Edit Activity Route
 acts.get('/:id/edit', (req, res) => {
     Act.findById(req.params.id, (err, data) => {
-        res.render('edit.ejs',
+        res.render('acts/edit.ejs',
         {
             act: data,
         })
     })
 })
 
-// Update Route
+// Update Activity Route
 acts.put('/:id', (req, res) => {
     Act.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedAct) => {
         if (err) {
@@ -67,17 +67,17 @@ acts.put('/:id', (req, res) => {
 })
 
 
-// Delete Route
+// Delete Activity Route
 acts.delete('/:id', (req, res) => {
     Act.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/acts')
     })
 })
 
-// Show Route
+// Show Activity Route
 acts.get('/:id', (req, res) => {
     Act.findById(req.params.id, (err, data) => {
-        res.render('show.ejs',
+        res.render('acts/show.ejs',
         {
             act: data,
         })
