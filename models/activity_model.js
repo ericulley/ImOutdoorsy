@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const activitySchema = new mongoose.Schema({
     name: {type: String, required: true},
     type: {type: String, required: true},
-    date: Number,
+    date: String,
     hours: Number,
     length: Number,
     location: String,

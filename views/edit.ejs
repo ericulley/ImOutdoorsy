@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Activity</title>
+    </head>
+    <body>
+        <nav>
+
+        </nav>
+        <header>
+            <h1>Edit <%=act.name%></h1>
+        </header>
+        <main>
+            <form action="/acts/<%=act._id%>?_method=PUT" method="post">
+                <!-- Name -->
+                <label for="edit-name">Name:</label>
+                <input id="edit-name" type="text" name="name" value="<%=act.name%>">
+                <br/>
+                <!-- Type -->
+                <label for="edit-type">Type:</label>
+                <input id="edit-type" type="text" name="type" value="<%=act.type%>">
+                <br/>
+                <!-- Date -->
+                <label for="edit-date">Date:</label>
+                <input id="edit-date" type="date" name="date" value="<%=act.date%>">
+                <br/>
+                <!-- Hours -->
+                <label for="edit-hours">Hours:</label>
+                <input id="edit-hours" type="text" name="hours" value="<%=act.hours%>">
+                <br/>
+                <!-- Length -->
+                <label for="edit-length">Length:</label>
+                <input id="edit-length" type="text" name="length" value="<%=act.length%>">
+                <br/>
+                <!-- Location -->
+                <label for="edit-location">Location:</label>
+                <input id="edit-location" type="text" name="location" value="<%=act.location%>">
+                <br/>
+                <!-- Description -->
+                <label for="edit-description">Description:</label>
+                <input id="edit-description" type="text" name="description" value="<%=act.description%>">
+                <br/>
+                <!-- Image -->
+                <label for="edit-img">Image:</label>
+                <input id="edit-img" type="text" name="img" value="<%=act.img%>">
+                <br/>
+                <!-- Rating -->
+                <label for="edit-rating">Rating:</label>
+                <input id="edit-rating" type="text" name="rating" value="<%=act.rating%>">
+                <br/>
+                <button type="submit">Update Activity</button>
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
