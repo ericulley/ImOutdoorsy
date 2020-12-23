@@ -24,6 +24,7 @@ acts.get('/', (req, res) => {
         res.render('acts/index.ejs',
         {
             acts: data,
+            currentUser: req.session.currentUser
         })
     })
 })

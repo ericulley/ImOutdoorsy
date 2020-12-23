@@ -6,11 +6,19 @@
     </head>
     <body>
         <nav>
-            <a href="/users/new">Sign Up</a>
-            <a href="/sessions">Log In</a>
-            <form action="/sessions?_method=DELETE" method="post">
-                <button type="submit">Log Out</button>
-            </form>
+            <% if (currentUser) {
+                %>
+                <p>Welcome <%=currentUser.username%></p>
+                <form action="/sessions?_method=DELETE" method="post">
+                    <button type="submit">Log Out</button>
+                </form>
+                <%
+            } else {
+                %>
+                <a href="/users/new">Sign Up</a>
+                <a href="/sessions">Log In</a>
+                <%
+            }%>
         </nav>
         <header>
             <h1>Welcome to I'm Outdoorsy!</h1>
