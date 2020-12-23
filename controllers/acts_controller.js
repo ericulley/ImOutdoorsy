@@ -12,11 +12,11 @@ const seed = require('../models/activity_seed')
 /////////
 
 // Seed Route
-// acts.get('/seed', (req, res) => {
-//     Act.create(seed, (err, data) => {
-//         res.redirect('/')
-//     })
-// })
+acts.get('/seed', (req, res) => {
+    Act.create(seed, (err, data) => {
+        res.redirect('/')
+    })
+})
 
 // Index Route
 acts.get('/', (req, res) => {
