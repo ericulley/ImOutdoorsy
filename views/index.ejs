@@ -14,12 +14,12 @@
         <main>
             <ul>
                 <% for (let i = 0; i < acts.length; i++) {
-                    %> <a href="#"><li><%=acts.name%></li></a> <%
+                    %> <a href="/<%=acts[i]._id%>"><li><%=acts[i].name%></li></a> <%
                 } %>
             </ul>
-            <form class="" action="/" method="post">
-                <button type="submit">Log New Activity</button>
-            </form>
+            <a href="/acts/new">
+                <button type="button">Log New Activity</button>
+            </a>
         </main>
         <footer>
 

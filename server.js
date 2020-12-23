@@ -31,7 +31,7 @@ app.use(methodOverride('_method'))
 
 // Controllers
 const actsController = require('./controllers/acts_controller.js')
-app.use('/', actsController)
+app.use('/acts', actsController)
 
 // Listener
 app.listen(PORT, () => {
