@@ -1,4 +1,4 @@
-// Dependencies
+ // Dependencies
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
@@ -45,6 +45,11 @@ const usersController = require('./controllers/users_controller.js')
 app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
+
+// Index Route
+app.get('/', (req, res) => {
+    res.render('index.ejs')
+})
 
 // Listener
 app.listen(PORT, () => {
