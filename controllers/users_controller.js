@@ -2,6 +2,8 @@
 const bcrypt = require('bcrypt')
 const express = require('express')
 const users = express.Router()
+
+// Import Users Collection
 const User = require('../models/user_model.js')
 
 // Routes
@@ -19,12 +21,10 @@ users.post('/', (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            res.redirect('/acts')
+            res.redirect('/')
         }
     })
 })
-
-
 
 // Export Router
 module.exports = users

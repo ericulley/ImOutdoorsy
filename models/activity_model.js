@@ -7,15 +7,13 @@ const activitySchema = new mongoose.Schema({
     name: {type: String, required: true},
     type: {type: String, required: true},
     date: String,
-    hours: Number,
-    length: Number,
+    time: Number,
     location: String,
     description: {type: String, required: true},
     img: String,
     rating: {type: Number, min: 1, max: 5},
     public: Boolean,
-    likes: {type: Number},
-    user: [User.schema],
+    // user: [User.schema],
 })
 
 // Declare Collection

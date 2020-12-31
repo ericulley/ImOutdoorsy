@@ -11,7 +11,10 @@ const User = require('../models/user_model.js')
 
 // New Session Route
 sessions.get('/', (req, res) => {
-    res.render('sessions/new_session.ejs')
+    res.render('sessions/new_session.ejs',
+    {
+        currentUser: req.session.currentUser,
+    })
 })
 
 // Create Session Route

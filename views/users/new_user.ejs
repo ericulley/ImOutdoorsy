@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+        <title>Sign Up!</title>
         <meta charset="utf-8">
-        <title></title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Yellowtail&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
         <nav>
-
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link logo" id="nav-logo" href="/">I'm Outdoorsy</a>
+            <a class="nav-link" href="/sessions">Log In</a>
         </nav>
         <header>
             <h1>Create New User</h1>
         </header>
         <main>
-            <form action="/users" method="POST">
+            <form class="act-container" action="/users" method="POST">
                 <label for="new-name">First Name: </label>
                 <input id="new-name" type="text" name="name">
                 <label for="new-username">New Username: </label>

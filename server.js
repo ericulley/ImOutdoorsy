@@ -5,8 +5,7 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const db = mongoose.connection
 require('dotenv').config()
-const session = require('express-session');
-
+const session = require('express-session')
 const PORT = process.env.PORT || 3003
 
 // DB connection
@@ -47,8 +46,6 @@ const usersController = require('./controllers/users_controller.js')
 app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
-
-
 
 // Listener
 app.listen(PORT, () => {

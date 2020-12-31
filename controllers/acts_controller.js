@@ -24,18 +24,24 @@ acts.get('/', (req, res) => {
         res.render('acts/index.ejs',
         {
             acts: data,
-            currentUser: req.session.currentUser
+            currentUser: req.session.currentUser,
         })
     })
 })
 
 // New Activity Route
 acts.get('/new', (req, res) => {
-    res.render('acts/new.ejs')
+    res.render('acts/new.ejs',
+    {
+        currentUser: req.session.currentUser,
+    })
 })
 
 // Create Activity Route
 acts.post('/', (req, res) => {
+    if (!req.body.img) {
+        req.body.img = 'https://cnet4.cbsistatic.com/img/S4gqhdykLM_WCY4vyAyQV35igZs=/1092x0/2019/03/20/4286bf60-8816-4be8-808c-2f301a407014/istock-514318052.jpg'
+    }
     Act.create(req.body, (err, newAct) => {
         // CHANGE: redirect to show page
         if (err) {
@@ -52,6 +58,7 @@ acts.get('/:id/edit', (req, res) => {
         res.render('acts/edit.ejs',
         {
             act: data,
+            currentUser: req.session.currentUser,
         })
     })
 })
@@ -81,6 +88,7 @@ acts.get('/:id', (req, res) => {
         res.render('acts/show.ejs',
         {
             act: data,
+            currentUser: req.session.currentUser,
         })
     })
 })

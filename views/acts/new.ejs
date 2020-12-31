@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Log New Activity</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Yellowtail&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <nav>
-
-        </nav>
+        <%- include('../partials/nav_bar.ejs') %>
         <header>
             <h1>Log New Activity</h1>
         </header>
@@ -26,12 +27,8 @@
                 <input id="new-date" type="date" name="date">
                 <br/>
                 <!-- Hours -->
-                <label for="new-hours">Hours:</label>
-                <input id="new-hours" type="text" name="hours">
-                <br/>
-                <!-- Length -->
-                <label for="new-length">Length:</label>
-                <input id="new-length" type="text" name="length">
+                <label for="new-time">Time Frame:</label>
+                <input id="new-time" type="number" name="time">
                 <br/>
                 <!-- Location -->
                 <label for="new-location">Location:</label>
