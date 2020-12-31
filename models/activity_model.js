@@ -1,5 +1,6 @@
 // Dependencies
 const mongoose = require('mongoose')
+const User = require('./user_model.js');
 
 // Create Model
 const activitySchema = new mongoose.Schema({
@@ -12,7 +13,9 @@ const activitySchema = new mongoose.Schema({
     description: {type: String, required: true},
     img: String,
     rating: {type: Number, min: 1, max: 5},
+    public: Boolean,
     likes: {type: Number},
+    user: [User.schema],
 })
 
 // Declare Collection

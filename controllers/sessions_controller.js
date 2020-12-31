@@ -35,7 +35,7 @@ sessions.post('/', (req, res) => {
 // Delete Session Route
 sessions.delete('/', (req, res) => {
     req.session.destroy(() => {
-        res.redirect('/acts')
+        res.redirect('/')
     })
 })
 

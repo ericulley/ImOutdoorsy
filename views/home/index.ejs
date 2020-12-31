@@ -2,17 +2,26 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>My Activities</title>
+        <title>I'm Outdoorsy!</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Yellowtail&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <%- include('../partials/nav_bar.ejs') %>
+        <%- include ('../partials/nav_bar.ejs') %>
         <header>
-            <h1>Welcome to I'm Outdoorsy!</h1>
+            <% if (currentUser) {
+                %>
+                <h1>Welcome <%=currentUser.username%></h1>
+                <%
+            } else {
+                %>
+                <h1>Welcome to I'm Outdoorsy</h1>
+                <%
+            } %>
         </header>
         <main>
+            <h2>Recent Activities</h2>
             <% for (let i = acts.length - 1; i >= 0; i--) {
                 %>
                 <div class="act-container">
@@ -26,9 +35,6 @@
                 </div>
                 <%
             } %>
-            <a href="/acts/new">
-                <button type="button">Log New Activity</button>
-            </a>
         </main>
         <footer>
 

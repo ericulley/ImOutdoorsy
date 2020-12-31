@@ -39,6 +39,8 @@ app.use(
 )
 
 // Controllers
+const homeController = require('./controllers/home_controller.js')
+app.use('/', homeController)
 const actsController = require('./controllers/acts_controller.js')
 app.use('/acts', actsController)
 const usersController = require('./controllers/users_controller.js')
@@ -46,10 +48,7 @@ app.use('/users', usersController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
-// Index Route
-app.get('/', (req, res) => {
-    res.render('index.ejs')
-})
+
 
 // Listener
 app.listen(PORT, () => {

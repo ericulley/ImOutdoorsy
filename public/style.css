@@ -1,3 +1,4 @@
+/* Site Colors */
 :root {
     --grey: #eee;
     --greenish: #008891;
@@ -5,6 +6,7 @@
     --dark-blue: #0f3057;
 }
 
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +17,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-
 a {
     text-decoration: none;
     color: #000;
@@ -24,7 +25,10 @@ a {
 /* Nav Bar */
 nav {
     background: #FFF;
+    position: fixed;
+    top: 0;
     height: 4rem;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -45,5 +49,38 @@ h1 {
     font-size: 5rem;
     color: var(--greenish);
     text-align: center;
-    padding: 2rem;
+    padding: 5rem 1rem 1rem 1rem;
+}
+
+/* Main */
+main {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Activity Container */
+.act-container {
+    background-color: white;
+    color: var(--light-blue);
+    width: 80%;
+    height: auto;
+    margin: 1em auto;
+    padding: .5em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: .5em;
+    box-shadow: 0px 1px 5px grey;
+}
+
+p {
+    font-size: .8em;
+}
+
+.act-container>img {
+    height: 15rem;
+    width: auto;
+    max-width: 90%;
+    align-self: center;
 }
