@@ -8,6 +8,16 @@ const Act = require('../models/activity_model.js');
 // Import Seed
 const seed = require('../models/activity_seed')
 
+// Auth Middleware
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+        return next()
+    } else {
+        res.redirect('/')
+    }
+}
+acts.use(isAuthenticated)
+
 // Routes
 /////////
 
@@ -20,7 +30,7 @@ acts.get('/seed', (req, res) => {
 
 // Index Route
 acts.get('/', (req, res) => {
-    Act.find({}, (err, data) => {
+    Act.find({user: req.session.currentUser}, (err, data) => {
         res.render('acts/index.ejs',
         {
             acts: data,
@@ -42,6 +52,7 @@ acts.post('/', (req, res) => {
     if (!req.body.img) {
         req.body.img = 'https://cnet4.cbsistatic.com/img/S4gqhdykLM_WCY4vyAyQV35igZs=/1092x0/2019/03/20/4286bf60-8816-4be8-808c-2f301a407014/istock-514318052.jpg'
     }
+    req.body.user = req.session.currentUser
     Act.create(req.body, (err, newAct) => {
         // CHANGE: redirect to show page
         if (err) {
@@ -69,7 +80,7 @@ acts.put('/:id', (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            res.redirect('/acts')
+            res.redirect(`/acts/${req.params.id}`)
         }
     })
 })
@@ -85,6 +96,8 @@ acts.delete('/:id', (req, res) => {
 // Show Activity Route
 acts.get('/:id', (req, res) => {
     Act.findById(req.params.id, (err, data) => {
+        console.log(req.session.currentUser)
+        console.log(data)
         res.render('acts/show.ejs',
         {
             act: data,

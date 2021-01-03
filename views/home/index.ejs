@@ -10,7 +10,7 @@
         <header>
             <% if (currentUser) {
                 %>
-                <h1>Welcome <%=currentUser.username%></h1>
+                <h1>Welcome <%=currentUser.name%></h1>
                 <%
             } else {
                 %>
@@ -21,10 +21,10 @@
         <main>
             <% if (currentUser) {
                 %>
-                <h2>Recent Activities</h2>
+                <h2>Activities Feed</h2>
                 <% for (let i = acts.length - 1; i >= 0; i--) {
                     %>
-                    <div class="act-container">
+                    <div id="welcome-container" class="container">
                         <h4 class="act-name"><%=acts[i].name%></h4>
                         <p class="act-location"><%=acts[i].location%></p>
                         <img src="<%=acts[i].img%>" alt="picture of activity"/>
@@ -39,11 +39,12 @@
             } else {
                 %>
                 <div id="welcome-container" class="container">
+                    <h2>READY TO TELL EVERYONE HOW OUTDOORSY YOU ARE?</h2>
                     <a href="/users/new">
-                    <button type="button">Click Here to Get Started!</button></a>
+                    <button>Click Here to Get Started!</button></a>
                     <h4> - Or - </h4>
                     <a href="/sessions">
-                    <button type="button">Here to Log In</button></a>
+                    <button>Log In</button></a>
                 </div>
                 <%
             } %>

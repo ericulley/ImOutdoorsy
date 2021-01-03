@@ -11,19 +11,54 @@
             <h1><%=act.name%></h1>
         </header>
         <main>
-            <img src="<%=act.img%>" alt="pic of activity">
-            <h4>Description</h4>
-            <p><%=act.description%></p>
-            <div class="">
-                <a href="/acts/<%=act._id%>/edit">
-                    <button type="button">EDIT</button>
-                </a>
-                <form action="/acts/<%=act._id%>?_method=DELETE" method="post">
-                    <button type="submit">DELETE</button>
-                </form>
-                <a href="/acts">
-                    <button type="button">Back</button>
-                </a>
+            <div id="show-container" class="container">
+                <img src="<%=act.img%>" alt="pic of activity">
+                <fieldset id="details-grid">
+                    <!-- Location -->
+                    <div class="grid-item">
+                        <label for="show-location">Location</label>
+                        <p id="show-location"><%=act.location%></p>
+                    </div>
+                    <!-- Type -->
+                    <div class="grid-item">
+                        <label class="show-label" for="show-type">Type</label>
+                        <p id="show-type"><%=act.type%></p>
+                    </div>
+                    <!-- Date -->
+                    <div class="grid-item">
+                        <label for="show-date">Date</label>
+                        <p id="show-date"><%=act.date%></p>
+                    </div>
+                    <!-- Time -->
+                    <div class="grid-item">
+                        <label for="show-time">Time Frame</label>
+                        <p id="show-time"><%=act.time%> hours</p>
+                    </div>
+                    <!-- Rating -->
+                    <div class="grid-item">
+                        <label for="show-rating">Rating</label>
+                        <p id="show-rating"><%=act.rating%></p>
+                    </div>
+                    <legend>Details</legend>
+                </fieldset>
+                <fieldset>
+                    <legend for>Description</legend>
+                    <p><%=act.description%></p>
+                </fieldset>
+                <div class="control-panel">
+                    <a href="/acts">
+                        <button type="button">BACK</button>
+                    </a
+                    <% if (currentUser._id === act.user[0]._id + "") { %>
+                        <a href="/acts/<%=act.id%>/edit">
+                            <button type="button">EDIT</button>
+                        </a>
+                        <form action="/acts/<%=act._id%>?_method=DELETE" method="post">
+                            <button type="submit">DELETE</button>
+                        </form>
+                    <% } %>
+
+                </div>
             </div>
         </main>
         <footer>

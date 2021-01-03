@@ -13,7 +13,7 @@ const activitySchema = new mongoose.Schema({
     img: String,
     rating: {type: Number, min: 1, max: 5},
     public: Boolean,
-    // user: [User.schema],
+    user: [User.schema],
 })
 
 // Declare Collection

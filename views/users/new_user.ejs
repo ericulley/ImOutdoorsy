@@ -15,13 +15,16 @@
             <h1>Create New User</h1>
         </header>
         <main>
-            <form class="act-container" action="/users" method="POST">
-                <label for="new-name">First Name: </label>
-                <input id="new-name" type="text" name="name">
-                <label for="new-username">New Username: </label>
-                <input id="new-username" type="text" name="username">
-                <label for="new-password">New Password: </label>
-                <input id="new-password" type="password" name="password">
+            <form class="container" action="/users" method="POST">
+                <!-- Used a fieldset here just for previously made stylings -->
+                <fieldset id="new-user-box">
+                    <label for="new-name">First Name: </label>
+                    <input id="new-name" type="text" name="name">
+                    <label for="new-username">New Username: </label>
+                    <input id="new-username" type="text" name="username">
+                    <label for="new-password">New Password: </label>
+                    <input id="new-password" type="password" name="password">
+                </fieldset>
                 <button type="submit">Create</button>
             </form>
         </main>
