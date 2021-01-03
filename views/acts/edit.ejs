@@ -11,7 +11,7 @@
             <h1>Edit <%=act.name%></h1>
         </header>
         <main>
-            <form action="/acts/<%=act._id%>?_method=PUT" method="post">
+            <form class="container" action="/acts/<%=act._id%>?_method=PUT" method="post">
                 <!-- Name -->
                 <label for="edit-name">Name:</label>
                 <input id="edit-name" type="text" name="name" value="<%=act.name%>">
@@ -52,7 +52,6 @@
             </form>
         </main>
         <footer>
-
         </footer>
     </body>
 </html>

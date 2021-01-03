@@ -11,39 +11,55 @@
             <h1>Log New Activity</h1>
         </header>
         <main>
-            <form action="/acts" method="post">
-                <!-- Name -->
-                <label for="new-name">Name:</label>
-                <input id="new-name" type="text" name="name">
-                <br/>
-                <!-- Type -->
-                <label for="new-type">Type:</label>
-                <input id="new-type" type="text" name="type">
-                <br/>
-                <!-- Date -->
-                <label for="new-date">Date:</label>
-                <input id="new-date" type="date" name="date">
-                <br/>
-                <!-- Hours -->
-                <label for="new-time">Time Frame:</label>
-                <input id="new-time" type="number" name="time">
-                <br/>
-                <!-- Location -->
-                <label for="new-location">Location:</label>
-                <input id="new-location" type="text" name="location">
-                <br/>
-                <!-- Description -->
-                <label for="new-description">Description:</label>
-                <input id="new-description" type="text" name="description">
-                <br/>
-                <!-- Image -->
-                <label for="new-img">Image:</label>
-                <input id="new-img" type="text" name="img">
-                <br/>
-                <!-- Rating -->
-                <label for="new-rating">Rating:</label>
-                <input id="new-rating" type="text" name="rating">
-                <br/>
+            <form class="container" action="/acts" method="post">
+                <fieldset class="new-activity-info">
+                    <legend>Basic Info (Required)</legend>
+                    <!-- Name -->
+                    <label for="new-name">Name</label>
+                    <input id="new-name" type="text" name="name">
+                    <br/>
+                    <!-- Type -->
+                    <label for="new-type">Type</label>
+                    <select id="new-type" name="type">
+                        <option id="select-placeholder" value="" disabled selected>Select an option below</option>
+                        <option value="hike">Hike</option>
+                        <option value="road_bike">Road Bike</option>
+                        <option value="mtn_bike">Mountain Bike</option>
+                        <option value="float">Float</option>
+                        <option value="run">Run</option>
+                        <option value="swim">Swim</option>
+                        <option value="ski">Ski/Snowboard</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br/>
+                    <!-- Description -->
+                    <label for="new-description">Description</label>
+                    <textarea id="new-description" name="description"></textarea>
+                    <br/>
+                </fieldset>
+                <fieldset class="new-activity-details">
+                    <legend>Details</legend>
+                    <!-- Date -->
+                    <label for="new-date">Date</label>
+                    <input id="new-date" type="date" name="date">
+                    <br/>
+                    <!-- Hours -->
+                    <label for="new-time">Time Frame</label>
+                    <input id="new-time" type="number" name="time" placeholder="(hours)" max="120" step=".25">
+                    <br/>
+                    <!-- Location -->
+                    <label for="new-location">Location</label>
+                    <input id="new-location" type="text" name="location">
+                    <br/>
+                    <!-- Image -->
+                    <label for="new-img">Image</label>
+                    <input id="new-img" type="text" name="img">
+                    <br/>
+                    <!-- Rating -->
+                    <label for="new-rating">Rating</label>
+                    <input id="new-rating" type="number" min="1" max="5" name="rating">
+                    <br/>
+                </fieldset>
                 <button type="submit">Submit New Activity</button>
             </form>
         </main>

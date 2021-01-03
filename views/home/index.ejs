@@ -19,17 +19,31 @@
             } %>
         </header>
         <main>
-            <h2>Recent Activities</h2>
-            <% for (let i = acts.length - 1; i >= 0; i--) {
+            <% if (currentUser) {
                 %>
-                <div class="act-container">
-                    <h4 class="act-name"><%=acts[i].name%></h4>
-                    <p class="act-location"><%=acts[i].location%></p>
-                    <img src="<%=acts[i].img%>" alt="picture of activity"/>
-                    <div class="act-control-panel">
-                        <p><a href="/acts/<%=acts[i]._id%>">more info</a></p>
+                <h2>Recent Activities</h2>
+                <% for (let i = acts.length - 1; i >= 0; i--) {
+                    %>
+                    <div class="act-container">
+                        <h4 class="act-name"><%=acts[i].name%></h4>
+                        <p class="act-location"><%=acts[i].location%></p>
+                        <img src="<%=acts[i].img%>" alt="picture of activity"/>
+                        <div class="act-control-panel">
+                            <p><a href="/acts/<%=acts[i]._id%>">more info</a></p>
+                        </div>
+                        <p class="act-description"><%=acts[i].description%></p>
                     </div>
-                    <p class="act-description"><%=acts[i].description%></p>
+                    <%
+                } %>
+                <%
+            } else {
+                %>
+                <div id="welcome-container" class="container">
+                    <a href="/users/new">
+                    <button type="button">Click Here to Get Started!</button></a>
+                    <h4> - Or - </h4>
+                    <a href="/sessions">
+                    <button type="button">Here to Log In</button></a>
                 </div>
                 <%
             } %>
