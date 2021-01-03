@@ -12,42 +12,54 @@
         </header>
         <main>
             <form class="container" action="/acts/<%=act._id%>?_method=PUT" method="post">
-                <!-- Name -->
-                <label for="edit-name">Name:</label>
-                <input id="edit-name" type="text" name="name" value="<%=act.name%>">
-                <br/>
-                <!-- Type -->
-                <label for="edit-type">Type:</label>
-                <input id="edit-type" type="text" name="type" value="<%=act.type%>">
-                <br/>
-                <!-- Date -->
-                <label for="edit-date">Date:</label>
-                <input id="edit-date" type="date" name="date" value="<%=act.date%>">
-                <br/>
-                <!-- Hours -->
-                <label for="edit-hours">Hours:</label>
-                <input id="edit-hours" type="text" name="hours" value="<%=act.hours%>">
-                <br/>
-                <!-- Length -->
-                <label for="edit-length">Length:</label>
-                <input id="edit-length" type="text" name="length" value="<%=act.length%>">
-                <br/>
-                <!-- Location -->
-                <label for="edit-location">Location:</label>
-                <input id="edit-location" type="text" name="location" value="<%=act.location%>">
-                <br/>
-                <!-- Description -->
-                <label for="edit-description">Description:</label>
-                <input id="edit-description" type="text" name="description" value="<%=act.description%>">
-                <br/>
-                <!-- Image -->
-                <label for="edit-img">Image:</label>
-                <input id="edit-img" type="text" name="img" value="<%=act.img%>">
-                <br/>
-                <!-- Rating -->
-                <label for="edit-rating">Rating:</label>
-                <input id="edit-rating" type="text" name="rating" value="<%=act.rating%>">
-                <br/>
+                <fieldset class="edit-activity-info">
+                    <legend>Basic Info (Required)</legend>
+                    <!-- Name -->
+                    <label for="edit-name">Name</label>
+                    <input id="edit-name" type="text" name="name" value="<%=act.name%>">
+                    <br/>
+                    <!-- Type -->
+                    <label for="edit-type">Type</label>
+                    <select id="edit-type" name="type">
+                        <option id="select-placeholder" value="" disabled selected>Select an option below</option>
+                        <option value="hike" <%if(act.type === 'hike'){%>selected<%}%>>Hike</option>
+                        <option value="road_bike" <%if(act.type === 'road_bike'){%>selected<%}%>>Road Bike</option>
+                        <option value="mtn_bike" <%if(act.type === 'mtn_bike'){%>selected<%}%>>Mountain Bike</option>
+                        <option value="float" <%if(act.type === 'float'){%>selected<%}%>>Float</option>
+                        <option value="run" <%if(act.type === 'run'){%>selected<%}%>>Run</option>
+                        <option value="swim" <%if(act.type === 'swim'){%>selected<%}%>>Swim</option>
+                        <option value="ski" <%if(act.type === 'ski'){%>selected<%}%>>Ski/Snowboard</option>
+                        <option value="other" <%if(act.type === 'other'){%>selected<%}%>>Other</option>
+                    </select>
+                    <br/>
+                    <!-- Description -->
+                    <label for="edit-description">Description</label>
+                    <textarea id="edit-description" name="description"><%=act.description%></textarea>
+                    <br/>
+                </fieldset>
+                <fieldset class="new-activity-details">
+                    <legend>Details</legend>
+                    <!-- Date -->
+                    <label for="edit-date">Date</label>
+                    <input id="edit-date" type="date" name="date" value="<%=act.date%>">
+                    <br/>
+                    <!-- Hours -->
+                    <label for="edit-time">Time Frame (in hours)</label>
+                    <input id="edit-time" type="number" name="time" min="0" max="120" step=".25" <%if(act.time){%>value="<%=act.time%>"<%}else{%>placeholder="(hours)"<%}%>>
+                    <br/>
+                    <!-- Location -->
+                    <label for="edit-location">Location</label>
+                    <input id="edit-location" type="text" name="location" value="<%=act.location%>">
+                    <br/>
+                    <!-- Image -->
+                    <label for="edit-img">Image</label>
+                    <input id="edit-img" type="text" name="img" value="<%=act.img%>">
+                    <br/>
+                    <!-- Rating -->
+                    <label for="edit-rating">Rating</label>
+                    <input id="edit-rating" type="number" min="1" max="5" name="rating" value="<%=act.rating%>">
+                    <br/>
+                </fieldset>
                 <button type="submit">Update Activity</button>
             </form>
         </main>
