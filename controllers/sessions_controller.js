@@ -44,7 +44,15 @@ sessions.post('/', (req, res) => {
 // Delete Session Route
 sessions.delete('/', (req, res) => {
     req.session.destroy(() => {
-        res.redirect('/')
+        res.redirect('/sessions/end')
+    })
+})
+
+// End Session Route
+sessions.get('/end', (req, res) => {
+    res.render('sessions/end_session.ejs',
+    {
+        currentUser: req.session.currentUser,
     })
 })
 

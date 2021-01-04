@@ -24,7 +24,11 @@ acts.use(isAuthenticated)
 // Seed Route
 acts.get('/seed', (req, res) => {
     Act.create(seed, (err, data) => {
-        res.redirect('/acts')
+        if (err) {
+            console.log(err)
+        } else {
+            res.redirect('/')
+        }
     })
 })
 
@@ -97,7 +101,7 @@ acts.delete('/:id', (req, res) => {
 acts.get('/:id', (req, res) => {
     Act.findById(req.params.id, (err, data) => {
         console.log(req.session.currentUser)
-        console.log(data)
+        console.log(data.user)
         res.render('acts/show.ejs',
         {
             act: data,
