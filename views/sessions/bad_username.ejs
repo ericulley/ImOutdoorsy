@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Log In</title>
+        <%- include('../partials/style_links.ejs') %>
+    </head>
+    <body>
+        <%- include('../partials/nav_bar.ejs') %>
+        <header>
+            <h1>Incorrect Username</h1>
+        </header>
+        <main>
+            <form class="container bad" action="/sessions" method="GET">
+                <fieldset id="new-session-box">
+                    <label for="username-input">Sorry, we can't find that username.</label>
+                </fieldset>
+                <button type="submit">Try Again</button>
+                <p> - Or - </p>
+                <button><a href="/users/new">Sign Up</a></button>
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

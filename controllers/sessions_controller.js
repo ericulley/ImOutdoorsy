@@ -23,13 +23,19 @@ sessions.post('/', (req, res) => {
         if (err) {
             console.log(err)
         } else if (!foundUser) {
-            res.send('<a href="/acts">Sorry, user not found.</a>')
+            res.render('sessions/bad_username.ejs',
+            {
+                currentUser: req.session.currentUser,
+            })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
                 req.session.currentUser = foundUser
                 res.redirect('/acts')
             } else {
-                res.send('<a href="/acts">Password does not match.</a>')
+                res.render('sessions/bad_password.ejs',
+                {
+                    currentUser: req.session.currentUser,
+                })
             }
         }
     })
