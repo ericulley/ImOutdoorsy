@@ -9,7 +9,7 @@ const User = require('../models/user_model.js')
 // Routes
 /////////
 
-// Get New User
+// New User
 users.get('/new', (req, res) => {
     res.render('users/new_user.ejs')
 })
@@ -22,6 +22,21 @@ users.post('/', (req, res) => {
             console.log(err)
         } else {
             res.redirect('/sessions')
+        }
+    })
+})
+
+// Show User (User Profile)
+users.get('/:id', (req, res) => {
+    User.findById(req.params.id, (err, foundUser) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.render('users/show_user.ejs',
+            {
+                user: foundUser,
+                currentUser: req.session.currentUser,
+            })
         }
     })
 })

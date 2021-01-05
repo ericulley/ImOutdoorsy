@@ -83,7 +83,8 @@ img {
 }
 
 /* Intro Container */
-#intro-container, .bad {
+/* Centering Containers */
+#intro-container, .bad, #delete-warning {
     text-align: center;
     align-items: center;
 }
@@ -126,7 +127,7 @@ img {
     align-self: center;
 }
 
-.act-control-panel {
+.act-control-panel, .user-controls {
     display: flex;
     justify-content: space-between;
     font-size: .8em;
@@ -210,11 +211,37 @@ textarea::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
-.control-panel button {
+.control-panel>button, #delete-warning>button {
     width: 6em;
 }
 
-/* Create New User */
+/* Delete Warning Modal */
+.none {
+    display: none;
+}
+
+#delete-modal {
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+#delete-warning {
+    height: 12rem;
+    margin-top: 40vh;
+}
+
+#delete:hover {
+    background-color: rgba(255,0,0,0.6);
+    border-radius: .2em;
+    border: 1px solid rgba(255,0,0,0.6);
+}
+
+/* Create New User & Log In Styling */
 #new-user-box, #new-session-box {
     border: 0;
 }

@@ -29,7 +29,7 @@
                         <p class="act-location"><%=acts[i].location%></p>
                         <img src="<%=acts[i].img%>" alt="picture of activity"/>
                         <div class="act-control-panel">
-                            <p class="control-item">user: <%=acts[i].user.name%></p>
+                            <p class="control-item"><%=acts[i].user[0].username%></p>
                             <p class="control-item">rating: <%=acts[i].rating%></p>
                             <p class="control-item"><a href="/acts/<%=acts[i]._id%>">more info</a></p>
                         </div>

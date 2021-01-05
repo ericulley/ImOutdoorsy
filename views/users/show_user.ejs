@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>User Profile</title>
+        <meta charset="utf-8">
+        <%- include('../partials/style_links.ejs') %>
+    </head>
+    <body>
+        <%- include ('../partials/nav_bar.ejs') %>
+        <header>
+            <h1><%=user.name%>'s Profile</h1>
+        </header>
+        <main>
+            <form class="container" action="/users" method="POST">
+                <!-- Used a fieldset here just for previously made stylings -->
+                <fieldset id="show-user-box">
+                    <label for="show-name">First Name: </label>
+                    <p id="show-name"><%=user.name%></p>
+                    <label for="show-username">Username: </label>
+                    <p id="show-username"> </p>
+                    <label for="show-password">Password: </label>
+                    <p id="show-password"> </p>
+                    <label for="show-bio">User Bio: </label>
+                    <p id="show-bio"> </p>
+                </fieldset>
+                <button type="submit">Edit</button>
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
