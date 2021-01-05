@@ -8,6 +8,15 @@ require('dotenv').config()
 const session = require('express-session')
 const PORT = process.env.PORT || 3003
 
+// Cloudinary Image Uploader & File Uploader
+const fileupload = require('express-fileupload');
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+})
+
 // DB connection
 const MONGODB_URI = process.env.MONGODB_URI
 mongoose.connect(MONGODB_URI,
@@ -29,6 +38,9 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(methodOverride('_method'))
+app.use(fileupload({
+    useTempFiles : true,
+}))
 app.use(
     session({
         secret: process.env.SECRET,
@@ -36,6 +48,7 @@ app.use(
         saveUninitialized: false,
     })
 )
+
 
 // Controllers
 const homeController = require('./controllers/home_controller.js')

@@ -11,20 +11,30 @@
             <h1><%=user.name%>'s Profile</h1>
         </header>
         <main>
-            <form class="container" action="/users" method="POST">
+            <div class="container">
                 <!-- Used a fieldset here just for previously made stylings -->
                 <fieldset id="show-user-box">
-                    <label for="show-name">First Name: </label>
-                    <p id="show-name"><%=user.name%></p>
-                    <label for="show-username">Username: </label>
-                    <p id="show-username"> </p>
-                    <label for="show-password">Password: </label>
-                    <p id="show-password"> </p>
-                    <label for="show-bio">User Bio: </label>
-                    <p id="show-bio"> </p>
+                    <div class="user-item">
+                        <label for="show-first-name">First Name: </label>
+                        <p id="show-first-name"><%=user.name%></p>
+                    </div>
+                    <div class="user-item">
+                        <label for="show-username">Username: </label>
+                        <p id="show-username"><%=user.username%></p>
+                    </div>
+                    <div class="user-item">
+                        <label for="show-password">Password: </label>
+                        <p id="show-password">encrypted</p>
+                    </div>
+                    <div class="user-item">
+                        <label for="show-bio">User Bio:</label>
+                        <p id="show-bio"><%=user.bio%></p>
+                    </div>
                 </fieldset>
-                <button type="submit">Edit</button>
-            </form>
+                <a class="control-panel" href="/users/<%=user._id%>/edit">
+                    <button type="button">Edit</button>
+                </a>
+            </div>
         </main>
         <footer>
 

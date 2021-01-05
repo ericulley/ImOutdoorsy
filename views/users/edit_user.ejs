@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>User Profile</title>
+        <meta charset="utf-8">
+        <%- include('../partials/style_links.ejs') %>
+    </head>
+    <body>
+        <%- include ('../partials/nav_bar.ejs') %>
+        <header>
+            <h1><%=user.name%>'s Profile</h1>
+        </header>
+        <main>
+            <form class="container" action="/users/<%=user._id%>?_method=PUT" method="POST">
+                <!-- Used a fieldset here just for previously made stylings -->
+                <fieldset class="edit-user-info">
+                    <label for="edit-first-name">First Name: </label>
+                    <input id="edit-first-name" type="text" name="name" value="<%=user.name%>">
+                    <label for="edit-username">Username: </label>
+                    <input id="edit-username" type="text" name="username" value="<%=user.username%>">
+                    <label for="edit-password">Password: </label>
+                    <input id="edit-password" placeholder="encrypted" disabled>
+                    <label for="edit-bio">User Bio:</label>
+                    <textarea id="edit-bio" name="bio"><%=user.bio%></textarea>
+                </fieldset>
+                <button type="submit">Update</button>
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

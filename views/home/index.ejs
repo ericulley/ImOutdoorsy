@@ -21,7 +21,16 @@
         <main>
             <% if (currentUser) {
                 %>
-                <h2>Activities Feed</h2>
+                <div class="banner">
+                    <h3>Activities Feed</h3>
+                    <div class="sort-by-container">
+                        <h3>Sort By: </h3>
+                        <select id="sort-by-menu" name="sort">
+                            <option value="">Recent</option>
+                            <option value="">Popular</option>
+                        </select>
+                    </div>
+                </div>
                 <% for (let i = acts.length - 1; i >= 0; i--) {
                     %>
                     <div id="welcome-container" class="container">

@@ -99,6 +99,33 @@ img {
     cursor: pointer;
 }
 
+/* Banner */
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+    width: 90%;
+    max-width: 38rem;
+    margin: 0 auto;
+}
+
+.sort-by-container {
+    display: flex;
+}
+
+#sort-by-menu {
+    font-size: 1.1em;
+    margin: 0 .3em;
+}
+
+.banner button {
+    background: var(--blue);
+    color: white;
+    border: 1px solid black;
+    border-radius: .3em;
+}
+
 /* Activity & Form Containers */
 .container {
     background-color: white;
@@ -127,7 +154,7 @@ img {
     align-self: center;
 }
 
-.act-control-panel, .user-controls {
+.act-control-panel {
     display: flex;
     justify-content: space-between;
     font-size: .8em;
@@ -198,7 +225,7 @@ textarea::-webkit-scrollbar-thumb {
     margin: .1em 0;
 }
 
-.grid-item>label {
+.grid-item>label, .user-item>label {
     text-decoration: underline;
 }
 
@@ -206,7 +233,7 @@ textarea::-webkit-scrollbar-thumb {
     font-size: .9em;
 }
 
-#show-container>.control-panel {
+.control-panel {
     display: flex;
     justify-content: center;
 }
@@ -242,6 +269,12 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 /* Create New User & Log In Styling */
-#new-user-box, #new-session-box {
+#new-user-box, #new-session-box, #show-user-box {
     border: 0;
+    overflow-x: hidden;
+}
+
+.user-item {
+    margin: .5em;
+
 }

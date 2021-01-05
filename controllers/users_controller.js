@@ -26,6 +26,29 @@ users.post('/', (req, res) => {
     })
 })
 
+// Edit User
+users.get('/:id/edit', (req, res) => {
+    User.findById(req.params.id, (err, foundUser) => {
+        res.render('users/edit_user.ejs',
+        {
+            user: foundUser,
+            currentUser: req.session.currentUser,
+        })
+    })
+})
+
+//Update User
+users.put('/:id', (req, res) => {
+    User.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedAct) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.redirect(`/users/${req.params.id}`)
+        }
+    })
+})
+
+
 // Show User (User Profile)
 users.get('/:id', (req, res) => {
     User.findById(req.params.id, (err, foundUser) => {

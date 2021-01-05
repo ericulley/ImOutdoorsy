@@ -11,7 +11,7 @@
             <h1>Log New Activity</h1>
         </header>
         <main>
-            <form class="container" action="/acts" method="post">
+            <form class="container" action="/acts" method="post" enctype="multipart/form-data">
                 <fieldset class="new-activity-info">
                     <legend>Basic Info (Required)</legend>
                     <!-- Name -->
@@ -43,9 +43,9 @@
                     <label for="new-date">Date</label>
                     <input id="new-date" type="date" name="date">
                     <br/>
-                    <!-- Hours -->
+                    <!-- Time Frame -->
                     <label for="new-time">Time Frame</label>
-                    <input id="new-time" type="number" name="time" placeholder="(hours)" max="120" step=".25">
+                    <input id="new-time" type="number" name="time" placeholder="(hours)" min="0" max="120" step=".25">
                     <br/>
                     <!-- Location -->
                     <label for="new-location">Location</label>
@@ -53,7 +53,7 @@
                     <br/>
                     <!-- Image -->
                     <label for="new-img">Image</label>
-                    <input id="new-img" type="text" name="img">
+                    <input id="new-img" type="file" name="img" multiple>
                     <br/>
                     <!-- Rating -->
                     <label for="new-rating">Rating</label>
