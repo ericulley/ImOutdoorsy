@@ -18,6 +18,7 @@ home.get('/', (req, res) => {
             {
                 acts: data,
                 currentUser: req.session.currentUser,
+                music: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3'
             })
         }
     })

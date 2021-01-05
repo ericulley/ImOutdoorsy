@@ -1,5 +1,5 @@
 $(() => {
-
+// Delete Activity Modal Warning
 $('#delete-button').click(() => {
     $('#delete-modal').toggleClass('none')
     $('#delete-no').click(() => {
@@ -7,9 +7,11 @@ $('#delete-button').click(() => {
     })
 })
 
-
+// None hardcoded back button
 $('.back').click(() => {
     window.history.back()
 })
+
+// Sort Listener
 
 })

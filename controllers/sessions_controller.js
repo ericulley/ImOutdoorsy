@@ -30,7 +30,7 @@ sessions.post('/', (req, res) => {
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
                 req.session.currentUser = foundUser
-                res.redirect('/acts')
+                res.redirect('/')
             } else {
                 res.render('sessions/bad_password.ejs',
                 {
