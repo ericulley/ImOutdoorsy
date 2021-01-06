@@ -24,7 +24,7 @@ module.exports = [
         location: "FCF State Park",
         description: "On our chill day, we decided to take the ferry across Jenny Lake and walk around the mouth of Cascade Canyon. We visited Hidden falls and ate lumch on Inspiration Point before catching the last ferry of the day back across the lake.",
         img: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Fall_Creek_Falls.jpg',
-        rating: 3.5,
+        rating: 3,
         user: [
             {
                 name: "Admin",

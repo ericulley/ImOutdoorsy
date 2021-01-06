@@ -14,9 +14,18 @@ home.get('/', (req, res) => {
         if (err) {
             console.log(err)
         } else {
+            // Sort Function
+            const sortedActs = []
+            for (let i = 0; i < data.length; i++) {
+                sortedActs.push(data[i])
+            }
+            sortedActs.sort(function (a, b) {
+                return b.rating - a.rating
+            })
             res.render('home/index.ejs',
             {
                 acts: data,
+                sortedActs: sortedActs,
                 currentUser: req.session.currentUser,
                 music: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3'
             })

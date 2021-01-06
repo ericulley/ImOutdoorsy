@@ -26,15 +26,15 @@
                     <div class="sort-by-container">
                         <h3>Sort By: </h3>
                         <select id="sort-by-menu" name="sort">
-                            <option value="">Recent</option>
-                            <option value="">Popular</option>
+                            <option id="recent">Recent</option>
+                            <option id="popular">Popular</option>
                         </select>
                     </div>
                 </div>
-                <!-- Limit the number of posts on home page to 10 -->
+                <!-- Sort activities in order and limit the number of posts on home page to 10 -->
                 <% for (let i = acts.length - 1; i >= 0 && i > acts.length - 11; i--) {
                     %>
-                    <div id="welcome-container" class="container">
+                    <div class="container recent-acts-container">
                         <h4 class="act-name"><%=acts[i].name%></h4>
                         <p class="act-location"><%=acts[i].location%></p>
                         <img src="<%=acts[i].img%>" alt="picture of activity"/>
@@ -48,8 +48,24 @@
                     </div>
                     <%
                 } %>
-                <%
-            } else {
+                <!-- Sort activities by rating and show 10 -->
+                <% for (let i = 0; i < 10; i++) {
+                    %>
+                    <div class="container popular-acts-container none">
+                        <h4 class="act-name"><%=sortedActs[i].name%></h4>
+                        <p class="act-location"><%=sortedActs[i].location%></p>
+                        <img src="<%=sortedActs[i].img%>" alt="picture of activity"/>
+                        <div class="act-control-panel">
+                            <p class="control-item"><%=sortedActs[i].user[0].username%></p>
+                            <p class="control-item">rating: <%=sortedActs[i].rating%></p>
+                            <p class="control-item"><a href="/acts/<%=sortedActs[i]._id%>">more info</a></p>
+                        </div>
+                        <hr>
+                        <p class="act-description"><%=sortedActs[i].description%></p>
+                    </div>
+                    <%
+                } %>
+            <% } else {
                 %>
                 <div id="intro-container" class="container">
                     <h2>READY TO TELL EVERYONE HOW OUTDOORSY YOU ARE?</h2>
@@ -63,9 +79,7 @@
             } %>
         </main>
         <footer>
-            <audio controls>
-              <source src="<%=music%>" type="audio/mpeg">
-            </audio>
+
         </footer>
     </body>
 </html>

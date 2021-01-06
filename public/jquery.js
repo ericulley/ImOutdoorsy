@@ -12,6 +12,10 @@ $('.back').click(() => {
     window.history.back()
 })
 
-// Sort Listener
+// Sort By Menu Event Handler
+$('#sort-by-menu').on('change', () => {
+    $('.popular-acts-container').toggleClass('none')
+    $('.recent-acts-container').toggleClass('none')
+})
 
 })
