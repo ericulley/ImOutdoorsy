@@ -136,8 +136,8 @@ acts.delete('/:id', (req, res) => {
 // Show Activity Route
 acts.get('/:id', (req, res) => {
     Act.findById(req.params.id, (err, data) => {
-        console.log(req.session.currentUser)
-        console.log(data.user)
+        // console.log(req.session.currentUser)
+        // console.log(data.user)
         res.render('acts/show.ejs',
         {
             act: data,

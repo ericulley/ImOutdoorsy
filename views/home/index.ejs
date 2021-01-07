@@ -26,12 +26,13 @@
                     <div class="sort-by-container">
                         <h3>Sort By: </h3>
                         <select id="sort-by-menu" name="sort">
-                            <option id="recent">Recent</option>
-                            <option id="popular">Popular</option>
+                            <option id="recent" value="recent" selected="selected">Recent</option>
+                            <option id="rating" value="rating">Rating</option>
+                            <option id="popular" value="popular">Popular</option>
                         </select>
                     </div>
                 </div>
-                <!-- Sort activities in order and limit the number of posts on home page to 10 -->
+                <!-- Sort recent activities in order and limit the number of posts on home page to 10 -->
                 <% for (let i = acts.length - 1; i >= 0 && i > acts.length - 11; i--) {
                     %>
                     <div class="container recent-acts-container">
@@ -51,7 +52,7 @@
                 <!-- Sort activities by rating and show 10 -->
                 <% for (let i = 0; i < 10; i++) {
                     %>
-                    <div class="container popular-acts-container none">
+                    <div class="container rating-acts-container none">
                         <h4 class="act-name"><%=sortedActs[i].name%></h4>
                         <p class="act-location"><%=sortedActs[i].location%></p>
                         <img src="<%=sortedActs[i].img%>" alt="picture of activity"/>
@@ -62,6 +63,23 @@
                         </div>
                         <hr>
                         <p class="act-description"><%=sortedActs[i].description%></p>
+                    </div>
+                    <%
+                } %>
+                <!-- Sort activities by popularity (number of comments) and show 10 -->
+                <% for (let i = 0; i < 10; i++) {
+                    %>
+                    <div class="container popular-acts-container none">
+                        <h4 class="act-name"><%=popActs[i].name%></h4>
+                        <p class="act-location"><%=popActs[i].location%></p>
+                        <img src="<%=popActs[i].img%>" alt="picture of activity"/>
+                        <div class="act-control-panel">
+                            <p class="control-item"><%=popActs[i].user[0].username%></p>
+                            <p class="control-item">rating: <%=popActs[i].rating%></p>
+                            <p class="control-item"><a href="/acts/<%=popActs[i]._id%>">more info</a></p>
+                        </div>
+                        <hr>
+                        <p class="act-description"><%=popActs[i].description%></p>
                     </div>
                     <%
                 } %>

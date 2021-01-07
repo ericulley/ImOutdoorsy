@@ -14,7 +14,7 @@ home.get('/', (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            // Sort Function
+            // Sort by Rating Function
             const sortedActs = []
             for (let i = 0; i < data.length; i++) {
                 sortedActs.push(data[i])
@@ -22,10 +22,21 @@ home.get('/', (req, res) => {
             sortedActs.sort(function (a, b) {
                 return b.rating - a.rating
             })
+            // Sort by Popularity/Comments Function
+            const popActs = []
+            for (let i = 0; i < data.length; i++) {
+                popActs.push(data[i])
+            }
+            popActs.sort((a, b) => {
+                return b.commentCount - a.commentCount
+            })
+            console.log(popActs)
+            // Render Home Page
             res.render('home/index.ejs',
             {
                 acts: data,
                 sortedActs: sortedActs,
+                popActs: popActs,
                 currentUser: req.session.currentUser,
                 music: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3'
             })
