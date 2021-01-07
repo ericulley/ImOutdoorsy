@@ -1,17 +1,7 @@
 # I'm Outdoorys
 Social media app for the outdoorsy
 
-Brief description:
-
-Additional Features:
-- Get location either via browser location data or user input.
-- Filter results by fuel type (Electric, Natural Gas, Bio-Diesel, Ethanol 85).
-- Filter results by a set radius around the users location.
-- Display results in order of nearest to the user.
-- Display the station name, city, distance from user, and price of each fuel source.
-- Display a link to google maps that will automatically give directions from the user's location to each station.
-- Display a sticky navigation menu that directs the user to more info about each fuel type.
-- Display footer with copyright info and personal link.
+Brief description: The worlds next great social media app for outdoor influencers.
 
 Technologies Used:
 - Express.js: Used to build full CRUD, including all 7 RESTful routes.
