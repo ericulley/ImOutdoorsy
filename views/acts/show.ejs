@@ -42,19 +42,32 @@
                     <legend>Details</legend>
                 </fieldset>
                 <fieldset>
-                    <legend for>Description</legend>
+                    <legend>Description</legend>
                     <p><%=act.description%></p>
                 </fieldset>
                 <div class="control-panel">
                     <button class="back">BACK</button>
                     <% if (currentUser._id === act.user[0]._id + "") { %>
-
-                            <button><a href="/acts/<%=act.id%>/edit">EDIT</a></button>
-
+                        <button><a href="/acts/<%=act.id%>/edit">EDIT</a></button>
                         <button id="delete-button" type="submit">DELETE</button>
                     <% } %>
                 </div>
             </div>
+            <h3>Comments</h3>
+            <form id="comments-container" class="container" action="/acts/<%=act._id%>/comment?_method=PUT" method="post">
+                <label for="comment-box">Add a Comment</label>
+                <textarea id="comment-box" name="comment"></textarea>
+                <button type="submit">Add Comment</button>
+                <!-- Display Comments -->
+                <% for (i = 0; i < act.comments.length; i++) {
+                    %>
+                    <hr>
+                    <div class="comment-container">
+                        <p class="act-location"><%=act.comments[i].commentUser[0].username%>: <%=act.comments[i].comment%></p>
+                    </div>
+                    <%
+                } %>
+            </form>
         </main>
         <footer>
 

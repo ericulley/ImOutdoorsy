@@ -208,7 +208,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 /* Show Containers */
-#show-container {
+#show-container, #comments-container {
     width: 90%;
 }
 

@@ -86,7 +86,7 @@ acts.post('/', (req, res) => {
                 })
             }
         })
-    } 
+    }
 })
 
 // Edit Activity Route
@@ -97,6 +97,20 @@ acts.get('/:id/edit', (req, res) => {
             act: data,
             currentUser: req.session.currentUser,
         })
+    })
+})
+
+// Update Comment Route
+acts.put('/:id/comment', (req, res) => {
+    req.body.commentUser = req.session.currentUser
+    console.log(req.body)
+    Act.findByIdAndUpdate(req.params.id, {$push: {comments: req.body}, $inc: {commentCount: 1}}, {new: true}, (err, updatedAct) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(updatedAct.comments)
+            res.redirect(`/acts/${req.params.id}`)
+        }
     })
 })
 
@@ -131,6 +145,7 @@ acts.get('/:id', (req, res) => {
         })
     })
 })
+
 
 // Export Router
 module.exports = acts

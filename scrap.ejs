@@ -1,1 +1,34 @@
 
+<% for (i = 0; i < act.comment.length; i++) {
+    %>
+    <div class="container">
+        <p class="act-location"><%=acts[i].comment%></p>
+        <div class="act-control-panel">
+            <p class="control-item"><%=acts[i].commentUser[0].username%></p>
+        </div>
+        <hr>
+    </div>
+    <%
+} %>
+
+
+
+// Update Comment Route
+acts.put('/:id/comment', (req, res) => {
+    console.log(req.body)
+    req.session.currentUser = req.body.commentUser
+    Act.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedAct) => {
+        if (err) {
+            console.log(err)
+        } else {
+            // res.redirect(`/users/${req.params.id}`)
+        }
+    })
+    Act.findByIdAndUpdate(req.params.id, {$inc: {'commentCount':1}}, {new: true}, (err, updatedAct) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.redirect(`/users/${req.params.id}`)
+        }
+    })
+})
