@@ -1,5 +1,5 @@
 # I'm Outdoorys
-Social media app for the outdoorsy
+## Social media app for the outdoorsy
 
 Brief description: The worlds next great social media app for outdoor influencers.
 
