@@ -133,11 +133,19 @@ acts.delete('/:id', (req, res) => {
     })
 })
 
+// // Delete Comment Update Route
+acts.put('/:id/comment/:comment_id', (req, res) => {
+    console.log(req.params.comment_id)
+    Act.findByIdAndUpdate(req.params.id, {$pull: { comments: { _id: req.params.comment_id}}, $inc: {commentCount: -1}}, (err, data) => {
+        res.redirect(`/acts/${req.params.id}`)
+    })
+})
+
 // Show Activity Route
 acts.get('/:id', (req, res) => {
     Act.findById(req.params.id, (err, data) => {
         // console.log(req.session.currentUser)
-        // console.log(data.user)
+        // console.log(data.comments)
         res.render('acts/show.ejs',
         {
             act: data,

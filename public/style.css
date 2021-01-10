@@ -86,7 +86,7 @@ img {
 
 /* Intro Container */
 /* Centering Containers */
-#intro-container, .bad, #delete-warning {
+#intro-container, .bad, #delete-warning, #delete-comment-warning {
     text-align: center;
     align-items: center;
 }
@@ -210,7 +210,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 /* Show Containers */
-#show-container, #comments-container {
+#show-container {
     width: 90%;
 }
 
@@ -240,7 +240,7 @@ textarea::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
-.control-panel>button, #delete-warning>button {
+.control-panel>button, #delete-warning>button, #delete-comment-warning>button {
     width: 6em;
 }
 
@@ -249,7 +249,7 @@ textarea::-webkit-scrollbar-thumb {
     display: none;
 }
 
-#delete-modal {
+#delete-modal, #delete-comment-modal {
     background-color: rgba(0,0,0,0.6);
     position: fixed;
     top: 0;
@@ -259,15 +259,33 @@ textarea::-webkit-scrollbar-thumb {
     z-index: 1;
 }
 
-#delete-warning {
+#delete-warning, #delete-comment-warning {
     height: 12rem;
     margin-top: 40vh;
 }
 
-#delete:hover {
+#delete:hover, #delete-comment:hover {
     background-color: rgba(255,0,0,0.6);
     border-radius: .2em;
     border: 1px solid rgba(255,0,0,0.6);
+}
+
+/* Comment Container */
+.comment-container {
+    display: flex;
+    padding: .4em;
+}
+
+.comment {
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+.delete-comment-button {
+    font-size: .2em;
+    padding: .5em;
+    margin: .1em;
+    flex-basis: content;
 }
 
 /* Create New User & Log In Styling */

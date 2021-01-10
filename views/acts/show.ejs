@@ -49,27 +49,36 @@
                     <button class="back">BACK</button>
                     <% if (currentUser._id === act.user[0]._id + "") { %>
                         <button><a href="/acts/<%=act.id%>/edit">EDIT</a></button>
-                        <button id="delete-button" type="submit">DELETE</button>
+                        <button class="delete-button" type="button">DELETE</button>
                     <% } %>
                 </div>
             </div>
             <h3>Comments</h3>
-            <form id="comments-container" class="container" action="/acts/<%=act._id%>/comment?_method=PUT" method="post">
-                <label for="comment-box">Add a Comment</label>
-                <textarea id="comment-box" name="comment"></textarea>
-                <button type="submit">Add Comment</button>
-                <!-- Display Comments -->
-                <% for (i = 0; i < act.comments.length; i++) {
-                    %>
-                    <hr>
-                    <div class="comment-container">
-                        <p class="act-location"><%=act.comments[i].commentUser[0].username%>: <%=act.comments[i].comment%></p>
-                    </div>
-                    <%
-                } %>
-            </form>
+            <div class="container">
+                <form id="add-a-comment" action="/acts/<%=act._id%>/comment?_method=PUT" method="post">
+                    <fieldset>
+                        <legend for="comment-box">Add a Comment</legend>
+                        <textarea id="comment-box" name="comment"></textarea>
+                        <button type="submit">Add Comment</button>
+                    </fieldset>
+                </form>
+                    <!-- Display Comments -->
+                    <% for (i = 0; i < act.comments.length; i++) {
+                        %>
+                        <hr>
+                        <form class="comment-container" action="/acts/<%=act._id%>/comment/<%=act.comments[i]._id%>?_method=PUT" method="post">
+                            <p class="comment"><%=act.comments[i].commentUser[0].username%>: <%=act.comments[i].comment%></p>
+                            <% if (currentUser._id === act.comments[i].commentUser[0]._id + "") { %>
+                                <button class="delete-comment-button" type="submit">DELETE</button>
+                            <% } %>
+                        </form>
+                        <%
+                    } %>
+
+            </div>
         </main>
         <%- include ('../partials/footer.ejs') %>
+        <!-- Delete Activity Modal -->
         <div id="delete-modal" class="none">
             <form id="delete-warning" class="container" action="/acts/<%=act._id%>?_method=DELETE" method="post">
                 <h3>Are you sure you want to delete this activity?</h3>
@@ -78,5 +87,14 @@
                 <button id="delete-no" type="button">No</button>
             </form>
         </div>
+        <!-- Delete Comment Modal -->
+        <!-- <div id="delete-comment-modal" class="none">
+            <form id="delete-comment-warning" class="container" action="/acts/<%=act._id%>/comment?_method=PUT" method="post">
+                <h3>Are you sure you want to delete this comment?</h3>
+                <button id="delete-comment" type="submit">DELETE</button>
+                <hr>
+                <button id="delete-comment-no" type="button">No</button>
+            </form>
+        </div> -->
     </body>
 </html>

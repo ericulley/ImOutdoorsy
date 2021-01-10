@@ -1,9 +1,17 @@
 $(() => {
 // Delete Activity Modal Warning
-$('#delete-button').click(() => {
+$('.delete-button').click(() => {
     $('#delete-modal').toggleClass('none')
     $('#delete-no').click(() => {
         $('#delete-modal').toggleClass('none')
+    })
+})
+
+// Delete Comment Modal Warning
+$('.delete-comment-button').click(() => {
+    $('#delete-comment-modal').toggleClass('none')
+    $('#delete-comment-no').click(() => {
+        $('#delete-comment-modal').toggleClass('none')
     })
 })
 
