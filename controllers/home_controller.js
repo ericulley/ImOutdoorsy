@@ -14,6 +14,7 @@ home.get('/', (req, res) => {
         if (err) {
             console.log(err)
         } else {
+            console.log("ACTS DATA: ", data)
             // Sort by Rating Function
             const sortedActs = []
             for (let i = 0; i < data.length; i++) {
@@ -30,7 +31,8 @@ home.get('/', (req, res) => {
             popActs.sort((a, b) => {
                 return b.commentCount - a.commentCount
             })
-            console.log(popActs)
+            console.log("popActs: ", popActs)
+            console.log("sortedActs: ", sortedActs)
             // Render Home Page
             res.render('home/index.ejs',
             {
