@@ -15,13 +15,17 @@ users.get('/new', (req, res) => {
 })
 
 // Create New User
-users.post('/', (req, res) => {
+users.post('/', (req, res, next) => {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
     User.create(req.body, (err, newUser) => {
         if (err) {
             console.log(err);
         } else {
-            console.log("New User: ", newUser);
+            if (newUser && newUser.username) {
+                let un = encodeURIComponent(newUser.username)
+                res.redirect(`/sessions?un=${un}`)
+                return next()
+            }
             res.redirect('/sessions')
         }
     })

@@ -10,10 +10,20 @@ const User = require('../models/user_model.js')
 /////////
 
 // New Session Route
-sessions.get('/', (req, res) => {
-    res.render('sessions/new_session.ejs',
+sessions.get('/', (req, res, next) => {
+    if (req.query.un) {
+        let username = req.query.un;
+        res.render('sessions/new_session.ejs', 
+        {
+            currentUser: req.session.currentUser,
+            username: username
+        })
+        return next()
+    }
+    res.render('sessions/new_session.ejs', 
     {
         currentUser: req.session.currentUser,
+        username: undefined
     })
 })
 
